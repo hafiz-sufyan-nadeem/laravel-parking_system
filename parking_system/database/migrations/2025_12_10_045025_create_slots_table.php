@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('slots', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slot_type');
+            $table->boolean('is_occupied')->default(false);
             $table->timestamps();
         });
     }

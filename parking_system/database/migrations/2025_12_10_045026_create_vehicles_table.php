@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
+            $table->string('vehicle_number');
+            $table->string('vehicle_type');
+            $table->foreignId('slot_id')->constrained('slots')->onDelete('cascade');
+            $table->timestamp('entry_time');
             $table->timestamps();
         });
     }

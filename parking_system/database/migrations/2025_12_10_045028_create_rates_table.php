@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
+            $table->string('slot_type');
+            $table->decimal('first_hour_fee', 8, 2)->default(50);
+            $table->decimal('per_hour_fee', 8, 2)->default(30);
+            $table->decimal('minimum_fee', 8, 2)->default(30);
             $table->timestamps();
         });
     }

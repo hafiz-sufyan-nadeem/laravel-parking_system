@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('parking_logs', function (Blueprint $table) {
             $table->id();
+            $table->string('vehicle_number');
+            $table->string('vehicle_type');
+            $table->foreignId('slot_id')->constrained('slots')->onDelete('set null');
+            $table->timestamp('entry_time');
+            $table->timestamp('exit_time')->nullable();
+            $table->integer('duration_minutes')->nullable();
+            $table->decimal('fee_paid',8,2)->default(0);
             $table->timestamps();
         });
     }
