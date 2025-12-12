@@ -7,5 +7,15 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    //
+    public function daily()
+    {
+        $today = now()->toDateString();
+
+        $logs = ParkingLog::whereDate('entry_time', $today)->get();
+
+        $totalRevenue = $logs->sum('fee_paid');
+
+        return view('admin.reports.daily', compact('logs', 'totalRevenue'));
+    }
+
 }
