@@ -13,7 +13,8 @@ class SlotController extends Controller
      */
     public function index()
     {
-        //
+        $slots = Slot::all();
+        return view('admin.slots.index', compact('slots'));
     }
 
     /**
@@ -21,7 +22,7 @@ class SlotController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.slots.create');
     }
 
     /**
@@ -29,7 +30,14 @@ class SlotController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'slot_type' => 'required',
+        ]);
+        Slot::create([
+            'slot_type' => $request->slot_type,
+            'is_occupied' => false
+        ]);
+        return redirect()->route('slots.index')->with('success', 'Slot created successfully.');
     }
 
     /**
