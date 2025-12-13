@@ -25,6 +25,11 @@ class ParkingController extends Controller
         return view('parking.entry');
     }
 
+    public function exitForm()
+    {
+        return view('parking.exit');
+    }
+
 
     public function storeEntry(Request $request){
         $request->validate([
