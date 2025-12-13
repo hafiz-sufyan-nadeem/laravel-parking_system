@@ -8,67 +8,52 @@ use Illuminate\Http\Request;
 
 class SlotController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $slots = Slot::all();
         return view('admin.slots.index', compact('slots'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('admin.slots.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
             'slot_type' => 'required',
         ]);
+
         Slot::create([
             'slot_type' => $request->slot_type,
-            'is_occupied' => false
+            'is_occupied' => false,
         ]);
-        return redirect()->route('slots.index')->with('success', 'Slot created successfully.');
+
+        return redirect()->route('admin.slots.index')->with('success', 'Slot created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Slot $slot)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Slot $slot)
     {
-        //
+        return view('admin.slots.edit', compact('slot'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Slot $slot)
     {
-        //
+        $request->validate([
+            'slot_type' => 'required',
+        ]);
+
+        $slot->update([
+            'slot_type' => $request->slot_type,
+        ]);
+
+        return redirect()->route('admin.slots.index')->with('success', 'Slot updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Slot $slot)
     {
-        //
+        $slot->delete();
+        return redirect()->route('admin.slots.index')->with('success', 'Slot deleted successfully.');
     }
 }
