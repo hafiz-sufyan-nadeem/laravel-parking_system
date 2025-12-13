@@ -3,15 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\ParkingLog;
+use App\Models\Slot;
+use App\Models\Rate;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class ParkingController extends Controller
 {
+    public function home()
+    {
+        // Current slots info
+        $totalSlots = Slot::count();
+        $occupiedSlots = Slot::where('is_occupied', true)->count();
+        $freeSlots = $totalSlots - $occupiedSlots;
+
+        return view('home', compact('totalSlots','occupiedSlots','freeSlots'));
+    }
+
     public function entryForm()
     {
         return view('parking.entry');
     }
+
 
     public function storeEntry(Request $request){
         $request->validate([
@@ -20,7 +33,7 @@ class ParkingController extends Controller
         ]);
 
         // Find Free Slot
-        $slot = Slot::where('slot_type', $request->vehical_type)
+        $slot = Slot::where('slot_type', $request->vehicle_type)
             ->where('is_occupied', false)
             ->first();
         if (!$slot){

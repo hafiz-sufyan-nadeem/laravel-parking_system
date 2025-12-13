@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mt-5">
         <h2>Vehicle Entry</h2>
-        <form action="{{ route('parking.entry.submit') }}" method="POST">
+        <form action="{{ route('entry.store') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="vehicle_number" class="form-label">Vehicle Number</label>

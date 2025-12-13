@@ -3,6 +3,11 @@
 @section('content')
     <div class="container mt-5">
         <h1 class="text-center">Welcome to Parking Management System</h1>
-        <p class="text-center">Use the navigation above to enter or exit your vehicle.</p>
+
+        <div class="mt-4 text-center">
+            <p>Total Slots: {{ $totalSlots }}</p>
+            <p>Occupied Slots: {{ $occupiedSlots }}</p>
+            <p>Free Slots: {{ $freeSlots }}</p>
+        </div>
     </div>
 @endsection
