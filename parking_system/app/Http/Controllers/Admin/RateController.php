@@ -7,5 +7,33 @@ use Illuminate\Http\Request;
 
 class RateController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('admin.rates.index');
+    }
+
+    public function create()
+    {
+        return view('admin.rates.create');
+    }
+
+    public function store(Request $request)
+    {
+        //
+    }
+
+    public function edit($id)
+    {
+        //
+    }
+
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    public function destroy($id)
+    {
+        //
+    }
 }
