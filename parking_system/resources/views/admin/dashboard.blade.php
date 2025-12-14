@@ -20,7 +20,7 @@
             <div class="col-md-4">
                 <div class="card text-center p-3">
                     <h5>Reports</h5>
-                    <a href="{{ route('admin.reports.index') }}" class="btn btn-primary mt-2">View Reports</a>
+                    <a href="{{ route('admin.reports.daily') }}" class="btn btn-primary mt-2">View Reports</a>
                 </div>
             </div>
         </div>
