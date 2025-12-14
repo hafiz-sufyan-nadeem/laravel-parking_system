@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\ParkingLog;
 use App\Models\Slot;
 use App\Models\Rate;
@@ -73,8 +74,9 @@ class ParkingController extends Controller
         if (!$vehicle){
             return back()->with('error', 'Vehicle not found');
         }
-        $entry = $vehicle->entry_time;
-        $exit = now();
+        $entry = Carbon::parse($vehicle->entry_time);
+        $exit = Carbon::now();
+
         $minutes = $exit->diffInMinutes($entry);
         $fee = $this->calculateFee($vehicle->vehicle_type, $minutes);
         // Find relevant log
