@@ -31,7 +31,7 @@
                 </tr>
             @endforelse
             </tbody>
-{{--        </table>--}}
+        </table>
 
         <div class="mt-3">
             <strong>Total Revenue: PKR: {{ number_format($totalRevenue ?? 0, 2) }}</strong>
