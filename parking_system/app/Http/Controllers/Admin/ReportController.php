@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
+    public function dashboard() {
+        return view('admin.dashboard');
+    }
+
     public function daily()
     {
         $today = now()->toDateString();
