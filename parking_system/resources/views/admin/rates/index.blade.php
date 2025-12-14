@@ -18,11 +18,11 @@
             </tr>
             </thead>
             <tbody>
-            @forelse($rates ?? [] as $rate)
+            @forelse($rates as $rate)
                 <tr>
                     <td>{{ $rate->id }}</td>
-                    <td>{{ $rate->vehicle_type }}</td>
-                    <td>{{ $rate->price }}</td>
+                    <td>{{ $rate->slot_type }}</td>
+                    <td>{{ $rate->first_hour_fee }}</td>
                     <td>
                         <a href="{{ route('admin.rates.edit', $rate->id) }}" class="btn btn-sm btn-warning">Edit</a>
                     </td>
@@ -32,6 +32,7 @@
                     <td colspan="4">No rates found.</td>
                 </tr>
             @endforelse
+
             </tbody>
         </table>
     </div>
