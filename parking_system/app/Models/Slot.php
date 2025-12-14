@@ -8,6 +8,11 @@ class Slot extends Model
 {
     protected $fillable = ['name','slot_type','is_occupied'];
 
-    public function vehicles() {return $this->hasMany(Vehicle::class);}
-    public function logs() {return $this->hasMany(ParkingLog::class);}
+    public function vehicle() {
+        return $this->hasMany(Vehicle::class);
+    }
+
+    public function logs() {
+        return $this->hasMany(ParkingLog::class);
+    }
 }

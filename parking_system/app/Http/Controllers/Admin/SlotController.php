@@ -22,16 +22,19 @@ class SlotController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'name' => 'required',
             'slot_type' => 'required',
         ]);
 
         Slot::create([
+            'name' => $request->name,
             'slot_type' => $request->slot_type,
             'is_occupied' => false,
         ]);
 
         return redirect()->route('admin.slots.index')->with('success', 'Slot created successfully.');
     }
+
 
     public function edit(Slot $slot)
     {
@@ -41,15 +44,18 @@ class SlotController extends Controller
     public function update(Request $request, Slot $slot)
     {
         $request->validate([
+            'name' => 'required',
             'slot_type' => 'required',
         ]);
 
         $slot->update([
+            'name' => $request->name,
             'slot_type' => $request->slot_type,
         ]);
 
         return redirect()->route('admin.slots.index')->with('success', 'Slot updated successfully.');
     }
+
 
     public function destroy(Slot $slot)
     {

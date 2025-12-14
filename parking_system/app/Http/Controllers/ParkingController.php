@@ -46,7 +46,7 @@ class ParkingController extends Controller
         }
 
         //Vehical Create
-        $vehical = Vehicle::create([
+        $vehicle = Vehicle::create([
             'vehicle_number' => $request->vehicle_number,
             'vehicle_type' => $request->vehicle_type,
             'slot_id' => $slot->id,
@@ -56,7 +56,8 @@ class ParkingController extends Controller
 
         //create parking log
         ParkingLog::create([
-            'vehicle_number' => $vehical->vehicle_number,
+            'vehicle_number' => $vehicle->vehicle_number,
+            'vehicle_type'  => $vehicle->vehicle_type,
             'slot_id' => $slot->id,
             'entry_time' => now(),
         ]);

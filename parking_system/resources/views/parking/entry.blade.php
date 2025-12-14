@@ -3,6 +3,16 @@
 @section('content')
     <div class="container mt-5">
         <h2>Vehicle Entry</h2>
+        @if ($errors->any())
+            <div style="color:red;">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form action="{{ route('entry.store') }}" method="POST">
             @csrf
             <div class="mb-3">
@@ -19,5 +29,11 @@
             </div>
             <button type="submit" class="btn btn-primary">Enter Vehicle</button>
         </form>
+        @if(session('success'))
+            <div>{{ session('success') }}</div>
+        @endif
+        @if(session('error'))
+            <div>{{ session('error') }}</div>
+        @endif
     </div>
 @endsection

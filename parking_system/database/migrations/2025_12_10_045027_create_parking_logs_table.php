@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('vehicle_number');
             $table->string('vehicle_type');
-            $table->foreignId('slot_id')->constrained('slots')->onDelete('set null');
+            $table->foreignId('slot_id')->nullable()->constrained('slots')->onDelete('set null');
             $table->timestamp('entry_time');
             $table->timestamp('exit_time')->nullable();
             $table->integer('duration_minutes')->nullable();
