@@ -23,7 +23,8 @@ class ParkingController extends Controller
 
     public function entryForm()
     {
-        return view('parking.entry');
+        $availableSlots = Slot::where('is_occupied', false)->count();
+        return view('parking.entry', compact('availableSlots'));
     }
 
     public function exitForm()
@@ -112,5 +113,6 @@ class ParkingController extends Controller
 
         return $rate->first_hour_fee + ($hours - 1) * $rate->per_hour_fee;
     }
+
 
 }
