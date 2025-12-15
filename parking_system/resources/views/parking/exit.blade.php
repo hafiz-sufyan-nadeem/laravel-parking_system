@@ -3,6 +3,12 @@
 @section('content')
     <div class="container mt-5">
         <h2>Vehicle Exit</h2>
+        @if(session('success'))
+            <div>{{ session('success') }}</div>
+        @endif
+        @if(session('error'))
+            <div>{{ session('error') }}</div>
+        @endif
         <form action="{{ route('exit.store') }}" method="POST">
             @csrf
             <div class="mb-3">

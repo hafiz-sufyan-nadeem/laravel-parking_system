@@ -3,7 +3,6 @@
 @section('content')
     <div class="container mt-5">
         <h1>Add Rate</h1>
-
         <form action="{{ route('admin.rates.store') }}" method="POST">
             @csrf
 
