@@ -4,11 +4,23 @@
     <div class="container mt-5">
         <h2 class="mt-6 fw-bold">Vehicle Entry</h2>
         @if(session('success'))
-            <div>{{ session('success') }}</div>
+            <div class="alert alert-success">{{ session('success') }}</div>
         @endif
-        @if(session('error'))
-            <div>{{ session('error') }}</div>
+
+    @if(session('error'))
+            <div class="alert alert-danger">{{ session('error') }}</div>
         @endif
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form action="{{ route('entry.store') }}" method="POST">
             @csrf
             <div class="mb-3">

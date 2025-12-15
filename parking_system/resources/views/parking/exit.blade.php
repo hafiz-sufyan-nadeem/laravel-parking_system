@@ -4,10 +4,11 @@
     <div class="container mt-5">
         <h2>Vehicle Exit</h2>
         @if(session('success'))
-            <div>{{ session('success') }}</div>
+            <div class="alert alert-success">{{ session('success') }}</div>
         @endif
+
         @if(session('error'))
-            <div>{{ session('error') }}</div>
+            <div class="alert alert-danger">{{ session('error') }}</div>
         @endif
         <form action="{{ route('exit.store') }}" method="POST">
             @csrf
