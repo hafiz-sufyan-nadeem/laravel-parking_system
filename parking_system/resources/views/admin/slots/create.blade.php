@@ -16,7 +16,7 @@
 
         <form action="{{ route('admin.slots.store') }}" method="POST">
             @csrf
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="name" class="form-label">Slot Name</label>
                 <input type="text" name="name" id="name" class="form-control" placeholder="A1, B1" required>
             </div>
