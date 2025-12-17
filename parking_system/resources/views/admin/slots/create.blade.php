@@ -23,7 +23,7 @@
             <div class="mb-3">
                 <label for="slot_type" class="form-label">Slot Type</label>
                 <select name="slot_type" id="slot_type" class="form-control" required>
-                    <option value="">Select Typee</option>
+                    <option value="">Select Type</option>
                     <option value="car">Car</option>
                     <option value="bike">Bike</option>
                 </select>
