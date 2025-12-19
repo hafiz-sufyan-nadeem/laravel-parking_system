@@ -10,7 +10,7 @@
     height: 70vh;
 ">
         <div class="position-absolute top-0 start-0 w-100 h-100"
-{{--             style="background: rgba(0,0,0,0.55);">--}}
+             style="background: rgba(0,0,0,0.55);">
         </div>
 
         <div class="container h-100 d-flex align-items-center justify-content-center position-relative">
