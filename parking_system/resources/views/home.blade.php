@@ -19,7 +19,7 @@
                 <h1 class="fw-bold display-5">
                     Smart Parking Management System
                 </h1>
-                <p class="mt-4">
+                <p class="mt-3">
                     Efficient vehicle parking, slot tracking, and fee management
                 </p>
 
