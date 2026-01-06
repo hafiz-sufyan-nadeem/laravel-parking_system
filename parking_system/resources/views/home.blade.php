@@ -7,7 +7,8 @@
     background-image: url('{{ asset('images/parking.jpg') }}');
     background-size: cover;
     background-position: center;
-    height: 70vh;
+    height: 71vh;
+
 ">
         <div class="position-absolute top-0 start-0 w-100 h-100"
              style="background: rgba(0,0,0,0.55);">
